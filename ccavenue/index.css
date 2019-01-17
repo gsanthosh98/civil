@@ -17,16 +17,16 @@ body {
   font-weight: 300;
   line-height: 1.42em;
   color:#FFFFFF;
-  background-color:#1F2739;
+  background-color:#FFFFFF;
 }
 input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-	background-color:#1F2739;
+	background-color: #FFFFFF;
 	border: 0;
-	color: #FFFFFF;
+	color: #000000;
 }
 
 .blue { color: #185875; }
@@ -41,6 +41,7 @@ input {
 
 .payment td {
 	  font-weight: normal;
+    color: #000000;
 	  font-size: 1em;
   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
 	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
@@ -51,7 +52,7 @@ input {
 	  text-align: left;
 	  overflow: hidden;
 	  width: 80%;
-	  margin: 0 auto;
+    border-collapse: collapse;
   display: table;
   padding: 0 0 8em 0;
 }
@@ -65,21 +66,21 @@ input {
 	  background-color: #1F2739;
 }
 
-.payment td:first-child { color: #FB667A; }
+.payment td:first-child { color: #4A148C; }
 
 .payment tr:hover {
-   background-color: #464A52;
--webkit-box-shadow: 0 6px 6px -6px #0E1119;
-	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
-	        box-shadow: 0 6px 6px -6px #0E1119;
+   background-color: #D7DBe2;
+-webkit-box-shadow: 0 6px 6px -6px #FFFFFF;
+	   -moz-box-shadow: 0 6px 6px -6px #FFFFFF;
+	        box-shadow: 0 6px 6px -6px #FFFFFF;
 }
 
 .payment td:hover {
-  background-color: #FFF842;
-  color: #403E10;
+  background-color: #7443A1;
+  color: #FFFFFF;
   font-weight: bold;
 
-  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  box-shadow: #360559 -1px 1px, #360559 -2px 2px, #360559 -3px 3px, #360559 -4px 4px, #360559 -5px 5px, #360559 -6px 6px;
   transform: translate3d(6px, -6px, 0);
 
   transition-delay: 0s;
