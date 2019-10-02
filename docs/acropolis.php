@@ -53,12 +53,26 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="index.html#home">HOME</a></li>
-                                <li><a href="index.html#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.html#events">EVENTS</a></li>
-                                <li><a href="index.html#lectures">LECTURES</a></li>
-                                <li><a href="contact.html">CONTACT</a></li>
-                                <li><a href="signup.html">LOGIN</a></li>
+                                <li><a href="index.php#home">HOME</a></li>
+                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                                <li><a href="index.php#events">EVENTS</a></li>
+                                <li><a href="index.php#lectures">LECTURES</a></li>
+                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
+                                <li><a href="about.php">CONTACT</a></li>
+                                <?php
+                                // Start the session
+
+                                if(isset($_SESSION["cid"]))
+                                {
+                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
+                                }
+                                else {
+                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
+                                }
+                                echo  $print1;
+                                ?>
+
+
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
                     </div><!-- .col-12 -->
@@ -109,8 +123,9 @@
                                               <p><strong><b>“Architecture is a visual art, and the building speak for themselves.”
                                                 &emsp;&emsp;&emsp;&emsp;- Julia Morgan</b></strong>
                                                 <br>
-                                                <br>
-                                                When you look at a city, you know, it looks so unique. You feel this kind of uniqueness, you know, and especially if you go from a big city to a small city or if you go from one country to another. Cities look very different, often. They even feel very different. You know, and they are, of course. They certainly are. If you are one of this kind and having more knowledge about city buildings, here is the challenging platform for your knowledge about buildings.
+                                                Urban design is an inter-disciplinary field that utilizes elements of many built environment professions, including landscape architecture, urban planning, architecture, civil engineering and municipal engineering.
+<br>Another important aspect is town planning.Town planning maintains the best of the past while encouraging creativity and innovation in the development of a sustainable future.
+<br>So, if you have interest in the above mentioned fields, here is an exciting oppurtunity to test your knowledge...
                                                 </p>
                                                 <br>
                                                 <h2 class="entry-header">FORMAT:</h2>
@@ -124,18 +139,20 @@
                                                   </li>
                                                   <li>FINALS:
                                                     <ul>
-                                                      <li>It is a picture description round. You have to describe the defect in the picture.</li>
-
+                                                      <li>Town planning statement will be given atleast 8 hours before the final round to you. You can prepare a presentation about it and present it before the judges.</li>
+                                                      <li>The judges decision is final.</li>
                                                     </ul>
                                                   </li>
 
                                                 </ol>
                                                 <h2 class="entry-header">RULES:</h2>
                                                 <ol>
+                                                  <li>Civilization 19 ID is mandatory</li>
                                                   <li>College ID card is mandatory.</li>
                                                   <li>Usage of mobile phones is strictly prohibited.</li>
                                                   <li>A team can have a maximum of three participants.</li>
                                                   <li>Judges decision will be final.</li>
+                                                  <li>Participants are required to bring a calculator.</li>
                                                 </ol>
 
 
@@ -152,39 +169,46 @@
                                               <h2 class="entry-header">Call for any doubts or queries</h2>
 
                                               <ul>
-                                                <li>	Sivaram&emsp;8220597322</li>
+                                                <li>Sivaram S&emsp;8220597322</li>
                                               <li>	Nandhini T&emsp;8610417096</li>
                                             </ul>
+                                            <p>Mail your queries to events.c19@gmail.com</p>
                                           </div>
 
                                           <div id="tab_about" class="tab-content">
                                             <h2 class="entry-header">Click the button below to register.</h2>
-                                            <p>If you have registered for any workshop, you can attend all the events conducted for the symposium. The registration entitiles you to attend all the technical and non-technical events.</p>
+                                            <p>The registrations will be open till the 3rd of March.</p><br>
+                                            <p>If you have registered for any one event, you can attend all the events conducted during the symposium. This registration entitles you to attend all the technical and non-technical events.</p>
+                                            <?php
+                                            // Start the session
 
-                                              <form id="registration" class="entry-content">
-
-                                              <!--<div class="entry-content flex">-->
-                                                  <input type="hidden" value="sample" id="event" />
-                                                  <input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay OnSite"></input>
-                                                  <br>
-
-                                                  <?php
-                                                  // Start the session
-
-                                                  if(isset($_SESSION["cid"]))
-                                                  {
-                                                    $print .="<div><a href="https://www.townscript.com/e/events-232334"><input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay and Register"></input></a></div>";
-                                                  }
-                                                  echo  $print;
-                                                  ?>
+                                            if(isset($_SESSION["cid"]))
+                                            {
+                                              $print2 .="<div><p><b><strong>You are currently logged in as ".$_SESSION["name"]."</strong></b></p></div>";
+                                            }
+                                            else {
+                                              $print2 .="<p><b><strong>You must be logged in to register online or onspot.</strong></b></p>";
+                                            }
+                                            echo  $print2;
+                                            ?>
 
 
+                                            <form id="registration" class="entry-content">
 
-                                                  <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
-                                              <!--</div>-->
-                                              </form>
+                                            <!--<div class="entry-content flex">-->
+                                                <input type="hidden" value="TALL STRUCTURES" id="event" />
+                                                <input class="btn gradient flex justify-content-center align-items-center" type="button" value="Closed."></input>
+                                                <p><b><strong>You can pay and register for the event onspot.</strong></b></p>
+                                                <br>
+
+
+
+
+                                                <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
+                                            <!--</div>-->
+                                            </form>
 
                                               </div>
                                       </div>
@@ -363,21 +387,21 @@
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">him@sbenstewart.in</a>
+                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://sbenstewart.in" style="color: #7443A1;" target="_blank">Chennai</a>
+                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
                         </div><!-- copyright-info -->
 
                         <div class="footer-social">
                             <ul class="flex justify-content-center align-items-center">
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
+                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
+                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
                             </ul>
                         </div><!-- footer-social -->
                     </div><!-- col -->

@@ -53,12 +53,26 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="index.html#home">HOME</a></li>
-                                <li><a href="index.html#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.html#events">EVENTS</a></li>
-                                <li><a href="index.html#lectures">LECTURES</a></li>
-                                <li><a href="contact.html">CONTACT</a></li>
-                                <li><a href="signup.html">LOGIN</a></li>
+                                <li><a href="index.php#home">HOME</a></li>
+                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                                <li><a href="index.php#events">EVENTS</a></li>
+                                <li><a href="index.php#lectures">LECTURES</a></li>
+                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
+                                <li><a href="about.php">CONTACT</a></li>
+                                <?php
+                                // Start the session
+
+                                if(isset($_SESSION["cid"]))
+                                {
+                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
+                                }
+                                else {
+                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
+                                }
+                                echo  $print1;
+                                ?>
+
+
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
                     </div><!-- .col-12 -->
@@ -98,7 +112,7 @@
                                   <div class="tabs">
                                       <ul class="tabs-nav flex">
                                           <li class="tab-nav flex justify-content-center align-items-center active" data-target="#tab_details">Details</li>
-                                          <!--<li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_venue">Venue</li>-->
+                                          <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_venue">Venue</li>
                                           <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_organizers">Organizers</li>
                                           <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_about">Register</li>
                                       </ul><!-- tabs-nav -->
@@ -111,46 +125,44 @@
                                               </p>
                                           </div>
 
-                                          <!--<div id="tab_venue" class="tab-content">
-                                              <h2 class="entry-header">10 years a mission</h2>
+                                          <div id="tab_venue" class="tab-content">
+                                            <p>6<sup>th</sup>March from 8:00 AM at Vivek Auditorium.</p>
 
-                                              <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum, diam odio tempor purus, at ultrices elit nulla ac nisl. Vestibulum enim sapien, blandit finibus elit vitae, venenatis tempor enim.</p>
-                                          </div>-->
+                                          </div>
 
                                           <div id="tab_organizers" class="tab-content">
-                                              <h2 class="entry-header">10 years a mission</h2>
-
-                                              <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum, diam odio tempor purus, at ultrices elit nulla ac nisl. Vestibulum enim sapien, blandit finibus elit vitae, venenatis tempor enim.</p>
+                                            <ul>
+                                              <li>	Raj Aditya&emsp;9629230056</li>
+                                              <li>	Priya&emsp;8675604979</li>
+                                              <li>	Dhivya&emsp;8489126689</li>
+                                            </ul>
+                                            <p>You can also mail us at civilisationworkshop19@gmail.com</p>
                                           </div>
 
                                           <div id="tab_about" class="tab-content">
                                             <h2 class="entry-header">Click the button below to register.</h2>
-                                            <p>The workshop costs INR 500 for one indiviual. Group registrations have to be done onsite.</p>
-
-                                              <form id="registration" class="entry-content">
-
-                                              <!--<div class="entry-content flex">-->
-                                                  <input type="hidden" value="solid-waste-management" id="event" />
-                                                  <input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay OnSite"></input>
-                                                  <br>
-
-                                                  <?php
-                                                  // Start the session
-
-                                                  if(isset($_SESSION["cid"]))
-                                                  {
-                                                    $print .="<a href="https://www.townscript.com/e/ground-improvement-techniques-232334"><input class="btn gradient flex justify-content-center align-items-center" type="button"  value="Pay and Register"></input></a>";
-                                                  }
-                                                  echo  $print;
-                                                  ?>
+                                            <p>The registrations will be open till the 3rd of March.</p>
+                                            <p>The workshop has been scheduled for March 6.</p><br>
+                                            <p>The workshop costs INR 600 for one indiviual. Group registrations have to be done onspot. Food can be availed only for online payments.</p>
 
 
 
-                                                  <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
-                                              <!--</div>-->
-                                              </form>
+                                            <form id="registration" class="entry-content">
+
+                                            <!--<div class="entry-content flex">-->
+                                                <input type="hidden" value="TALL STRUCTURES" id="event" />
+                                                <input class="btn gradient flex justify-content-center align-items-center" type="button" value="Closed."></input>
+                                                <p><b><strong>You can pay and register for the workshop onspot.</strong></b></p>
+                                                <br>
+
+
+
+
+                                                <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
+                                            <!--</div>-->
+                                            </form>
 
                                               </div>
                                       </div>
@@ -329,21 +341,21 @@
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">him@sbenstewart.in</a>
+                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://sbenstewart.in" style="color: #7443A1;" target="_blank">Chennai</a>
+                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
                         </div><!-- copyright-info -->
 
                         <div class="footer-social">
                             <ul class="flex justify-content-center align-items-center">
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
+                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
+                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
                             </ul>
                         </div><!-- footer-social -->
                     </div><!-- col -->

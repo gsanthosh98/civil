@@ -53,12 +53,26 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="index.html#home">HOME</a></li>
-                                <li><a href="index.html#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.html#events">EVENTS</a></li>
-                                <li><a href="index.html#lectures">LECTURES</a></li>
-                                <li><a href="contact.html">CONTACT</a></li>
-                                <li><a href="signup.html">LOGIN</a></li>
+                                <li><a href="index.php#home">HOME</a></li>
+                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                                <li><a href="index.php#events">EVENTS</a></li>
+                                <li><a href="index.php#lectures">LECTURES</a></li>
+                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
+                                <li><a href="about.php">CONTACT</a></li>
+                                <?php
+                                // Start the session
+
+                                if(isset($_SESSION["cid"]))
+                                {
+                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
+                                }
+                                else {
+                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
+                                }
+                                echo  $print1;
+                                ?>
+
+
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
                     </div><!-- .col-12 -->
@@ -125,25 +139,27 @@
                                                 <ul>
                                                   <li>The presentation time is for 8 mins and queries for 2 mins for each other.</li>
                                                   <li>Candidates should bring their identity card at the time of presentation.</li>
-                                                  <li>Maximum two participants per team.</li>
                                                   <li>Presenter should be in their formal attire during the presentation.</li>
                                                 </ul>
                                               </li>
                                               <li>PAPER SUBMISSION:
                                                 <ul>
+                                                  <li>The softcopy of the abstract should be submitted to paperpresentation.c2019@gmail.com on or before Feb25,2019.</li>
                                                   <li>Working models, samples fetch you extra points.</li>
                                                   <li>Candidates should  bring hard copy and soft copy of the paper at the time of presentation.</li>
                                                   <li>Bring your soft copies in pendrive.</li>
-                                                  <li>Judgement criteria : Based on the presentation mark were alloted to the teams.</li>
+                                                  <li>Judgement criteria : Based on the presentation, marks will be awarded to the teams.</li>
                                                 </ul>
                                               </li>
 
                                             </ol>
                                             <h2 class="entry-header">RULES:</h2>
                                             <ol>
+                                              <li>Civilization 19 ID is mandatory</li>
                                               <li>ID card is mandatory.</li>
                                               <li>Decision of the judges will be final and will not be subjected to further any discussion.</li>
                                               <li>Registration required.</li>
+                                              <li>A team should not have more than three participants.</li>
                                             </ol>
 
 
@@ -162,34 +178,43 @@
                                               <ul>
                                                 <li>	Govardhini&emsp;9994202202</li>
                                                 <li>	Gopika&emsp;9952079512</li>
-                                                <li>	Pavithra&emsp;9487714296</li>
+                                                <li>	Pavithra&emsp;9566801260</li>
                                             </ul>
                                           </div>
 
                                           <div id="tab_about" class="tab-content">
                                             <h2 class="entry-header">Click the button below to register.</h2>
-                                            <p>If you have registered for any workshop, you can attend all the events conducted for the symposium. The registration entitiles you to attend all the technical and non-technical events.</p>
+                                            <p>The registrations will be open till the 3rd of March.</p>
+                                            <p>If you have registered for any one event, you can attend all the events conducted during the symposium. This registration entitles you to attend all the technical and non-technical events.</p>
+                                            <?php
+                                            // Start the session
 
-                                              <form id="registration" class="entry-content">
+                                            if(isset($_SESSION["cid"]))
+                                            {
+                                              $print2 .="<div><p><b><strong>You are currently logged in as ".$_SESSION["name"]."</strong></b></p></div>";
+                                            }
+                                            else {
+                                              $print2 .="<p><b><strong>You must be logged in to register online or onspot.</strong></b></p>";
+                                            }
+                                            echo  $print2;
+                                            ?>
 
-                                              <!--<div class="entry-content flex">-->
-                                                  <input type="hidden" value="sample" id="event" />
-                                                  <input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay OnSite"></input>
-                                                  <br>
-                                                  <?php
-// Start the session
 
-if(isset($_SESSION["cid"]))
-{
-  $print .="<div><a href="https://www.townscript.com/e/events-232334"><input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay and Register"></input></a></div>";
-}
-echo  $print;
-?>
-                                                  <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
-                                              <!--</div>-->
-                                              </form>
+                                            <form id="registration" class="entry-content">
+
+                                            <!--<div class="entry-content flex">-->
+                                                <input type="hidden" value="TALL STRUCTURES" id="event" />
+                                                <input class="btn gradient flex justify-content-center align-items-center" type="button" value="Closed."></input>
+                                                <br>
+
+
+
+
+                                                <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
+                                            <!--</div>-->
+                                            </form>
 
                                               </div>
                                       </div>
@@ -368,21 +393,21 @@ echo  $print;
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">him@sbenstewart.in</a>
+                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://sbenstewart.in" style="color: #7443A1;" target="_blank">Chennai</a>
+                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
                         </div><!-- copyright-info -->
 
                         <div class="footer-social">
                             <ul class="flex justify-content-center align-items-center">
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
+                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
+                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
                             </ul>
                         </div><!-- footer-social -->
                     </div><!-- col -->

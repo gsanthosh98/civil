@@ -53,12 +53,26 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="index.html#home">HOME</a></li>
-                                <li><a href="index.html#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.html#events">EVENTS</a></li>
-                                <li><a href="index.html#lectures">LECTURES</a></li>
-                                <li><a href="contact.html">CONTACT</a></li>
-                                <li><a href="signup.html">LOGIN</a></li>
+                                <li><a href="index.php#home">HOME</a></li>
+                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                                <li><a href="index.php#events">EVENTS</a></li>
+                                <li><a href="index.php#lectures">LECTURES</a></li>
+                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
+                                <li><a href="about.php">CONTACT</a></li>
+                                <?php
+                                // Start the session
+
+                                if(isset($_SESSION["cid"]))
+                                {
+                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
+                                }
+                                else {
+                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
+                                }
+                                echo  $print1;
+                                ?>
+
+
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
                     </div><!-- .col-12 -->
@@ -100,7 +114,7 @@
                                           <li class="tab-nav flex justify-content-center align-items-center active" data-target="#tab_details">Details</li>
                                           <!--<li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_venue">Venue</li>-->
                                           <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_organizers">Organizers</li>
-                                          <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_about">Register</li>
+                                          <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_about">Problem Statement and Registration</li>
                                       </ul><!-- tabs-nav -->
 
                                       <div class="tabs-container">
@@ -110,11 +124,46 @@
                                                 &emsp;&emsp;&emsp;&emsp;- Ronald a Heifetz</b></strong>
                                                 <br>
                                                 <br>
-                                                Have you ever felt tired of constructing buildings on land???.Are you a creative person??  Here is a great chance to showcaseyour innovative ideas.As a innovative engineer you have to build abuoyant concrete structure which can float in water.
+                                                Have you ever felt tired of constructing buildings on land???.Are you a creative person??  Here is a great chance to showcase your innovative ideas.As a innovative engineer you have to build a buoyant concrete structure which can float in water.
                                                 </p>
+                                                <h2 class="entry-header">FORMAT:</h2>
 
-
-
+                                                <ol>
+                                                  <li>PRELIMS:
+                                                    <ul>
+                                                      <li>Problem statement will be given.</li>
+                                                      <li>You must design the mix and cast the concrete structure (in the shape of boat) that can actually float in water within the specified restrictions.</li>
+                                                      <li>The constituents should be cement, sand, water, and admixture, wire mesh (type and material can be decided by the participants).</li>
+                                                      <li>Preparing  a  detailed report of  the  design  mix and  its online submission to us  before  the  specified  dead line.</li>
+                                                      <li>(NOTE:  The participants will be selected to the next stage based on their abstract.)</li>
+                                                      <li><b><strong>Please send your abstracts on or before the 3rd of March to confloat.c19@gmail.com</strong></b></li>
+                                                    </ul>
+                                                  </li>
+                                                  <li>FINALS:
+                                                    <ul>
+                                                      <li>Bring the cast concrete structure to our college during CIVILISATION-19.</li>
+                                                      <li>Density, Floating capability, Strength, Appearance of the block will be tested.</li>
+                                                      <li>The  submitted  design  reports   would  be  evaluated and the teams will  be asked to give a brief oral presentation of their work upon which they will be questioned.</li>
+                                                      <li>Points would be awarded according to the judging criteria and winners will be announced.</li>
+                                                    </ul>
+                                                  </li>
+                                                </ol>
+                                                <h2 class="entry-header">RULES:</h2>
+                                                <ol>
+                                                  <li>Civilisation 19 ID is mandatory</li>
+                                                  <li>College ID card is mandatory.</li>
+                                                  <li>Usage of mobile phones is strictly prohibited.</li>
+                                                  <li>A team can have a maximum of three participants.</li>
+                                                </ol>
+                                                <h2 class="entry-header">JUDGING CRITERIA:</h2>
+                                                <ol>
+                                                  <li>Models which do not adhere to the specified dimensions will be rejected.</li>
+                                                  <li>The model will be subjected to external loads.</li>
+                                                  <li>The model will be tested for it's volume of water displaced.</li>
+                                                  <li>The model will be tested for it's floating capacity.</li>
+                                                  <li>Finish of the model will be taken into account.</li>
+                                                  <li>Brief oral presentaion to the judge.</li>
+                                                </ol>
                                           </div>
 
                                           <!--<div id="tab_venue" class="tab-content">
@@ -128,34 +177,56 @@
 
                                               <ul>
                                                 <li>Sathish K&emsp;9444666807</li>
-                                              <li>	Parul S &emsp;8754585655</li>
+                                              <li>Parul S &emsp;8754585655</li>
                                             </ul>
+                                            <p>Mail your queries to events.c19@gmail.com</p>
                                           </div>
 
                                           <div id="tab_about" class="tab-content">
+
+                                            <h2 class="entry-header">PROBLEM STATEMENT:</h2>
+                                            <p>Design concrete boat model of the dimensions 50X30X30cm. The primary constituents must be cement and sand. The strength of the concrete should lie between 20-30MPa. The model with low density and high floating capacity will be awarded. The density of the model should lie between 1400-1800kg/m<sup>3</sup> and the model must be able to float with it's self weight. Chemical admixture can be used. The design should be done with IS code provisions, suitable penalty will be given for the teams who fail to follow the above constraints.</p>
+                                            <ol>
+                                              <li>Civilisation 19 ID is mandatory</li>
+                                              <li>College ID card is mandatory.</li>
+                                              <li>Usage of mobile phones is strictly prohibited.</li>
+                                              <li>A team can have a maximum of three participants.</li>
+                                            </ol>
+
+
                                             <h2 class="entry-header">Click the button below to register.</h2>
-                                            <p>If you have registered for any workshop, you can attend all the events conducted for the symposium. The registration entitiles you to attend all the technical and non-technical events.</p>
+                                            <p>The registrations will be open till the 3rd of March.</p>
+                                            <p>If you have registered for any one event, you can attend all the events conducted during the symposium. This registration entitles you to attend all the technical and non-technical events.</p>
+                                            <?php
+                                            // Start the session
 
-                                              <form id="registration" class="entry-content">
+                                            if(isset($_SESSION["cid"]))
+                                            {
+                                              $print2 .="<div><p><b><strong>You are currently logged in as ".$_SESSION["name"]."</strong></b></p></div>";
+                                            }
+                                            else {
+                                              $print2 .="<p><b><strong>You must be logged in to register online or onspot.</strong></b></p>";
+                                            }
+                                            echo  $print2;
+                                            ?>
 
-                                              <!--<div class="entry-content flex">-->
-                                                  <input type="hidden" value="sample" id="event" />
-                                                  <input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay OnSite"></input>
-                                                  <br>
-                                                  <?php
-                                                  // Start the session
 
-                                                  if(isset($_SESSION["cid"]))
-                                                  {
-                                                    $print .="<div><a href="https://www.townscript.com/e/events-232334"><input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay and Register"></input></a></div>";
-                                                  }
-                                                  echo  $print;
-                                                  ?>
-                                                  <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
-                                              <!--</div>-->
-                                              </form>
+                                            <form id="registration" class="entry-content">
+
+                                            <!--<div class="entry-content flex">-->
+                                                <input type="hidden" value="TALL STRUCTURES" id="event" />
+                                                <input class="btn gradient flex justify-content-center align-items-center" type="button" value="Closed."></input>
+                                                <p><b><strong>You can pay and register for the event onspot.</strong></b></p>
+                                                <br>
+
+
+
+
+                                                <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
+                                            <!--</div>-->
+                                            </form>
 
                                               </div>
                                       </div>
@@ -334,21 +405,21 @@
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">him@sbenstewart.in</a>
+                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://sbenstewart.in" style="color: #7443A1;" target="_blank">Chennai</a>
+                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
                         </div><!-- copyright-info -->
 
                         <div class="footer-social">
                             <ul class="flex justify-content-center align-items-center">
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
+                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
+                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
                             </ul>
                         </div><!-- footer-social -->
                     </div><!-- col -->

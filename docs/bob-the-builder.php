@@ -53,12 +53,26 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="index.html#home">HOME</a></li>
-                                <li><a href="index.html#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.html#events">EVENTS</a></li>
-                                <li><a href="index.html#lectures">LECTURES</a></li>
-                                <li><a href="contact.html">CONTACT</a></li>
-                                <li><a href="signup.html">LOGIN</a></li>
+                                <li><a href="index.php#home">HOME</a></li>
+                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                                <li><a href="index.php#events">EVENTS</a></li>
+                                <li><a href="index.php#lectures">LECTURES</a></li>
+                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
+                                <li><a href="about.php">CONTACT</a></li>
+                                <?php
+                                // Start the session
+
+                                if(isset($_SESSION["cid"]))
+                                {
+                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
+                                }
+                                else {
+                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
+                                }
+                                echo  $print1;
+                                ?>
+
+
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
                     </div><!-- .col-12 -->
@@ -106,15 +120,45 @@
                                       <div class="tabs-container">
                                           <div id="tab_details" class="tab-content">
 
-                                              <p><strong><b>"You can't have a healthy civilization without healthy soil. You can't have junk food and have healthy people."
+                                              <p><strong><b>""You can't have a healthy civilization without healthy soil. You can't have junk food and have healthy people."
                                                 &emsp;&emsp;&emsp;&emsp;- Joel Salatin</b></strong>
                                                 <br>
                                                 <br>
-                                                Soil  mechanics is an art of science and Engineering. The observation of the performance of the soli is an essential part of any construction not only in laboratory and also in field.
+                                                Soil mechanics is an art of science and Engineering. The observation of the performance of the soil is an essential part of any construction not only in laboratory and also in field.
                                                 Are you a genius in mechanics of soil and hydraulics?
                                                 Can you build a model with deep knowledge of that?
                                                 Then open your skills in making the model!!!
                                                 </p>
+                                                <h2 class="entry-header">FORMAT:</h2>
+                                                <ol>
+                                                  <li>PRELIMS:
+                                                    <ul>
+                                                      <li>A team of 2 or 3 members are allowed.</li>
+                                                      <li>Participants are requested to bring their own calculators.</li>
+                                                      <li>The questionnaire consists of 25 questions</li>
+                                                      <li>Allocated time for answering the questions is 30 minutes</li>
+                                                      <li>If there is tie between 2 or more teams the evaluation will be based upon *(Star) question. A team which has correctly answered the maximum number of star questions will be given priority.</li>
+                                                    </ul>
+                                                  </li>
+                                                  <li>FINALS:
+                                                    <ul>
+                                                      <li>Participants has to make a model of water retaining structure based on the problem statement.</li>
+                                                      <li>The model must be completed within the given time.</li>
+                                                      <li>Only the materials provided must be used.</li>
+                                                      <li>In case of any discrepancies, the decision taken by the Judges and organisers will be final.</li>
+                                                      <li>Participants are required to bring a calculator.</li>
+                                                    </ul>
+                                                  </li>
+                                                </ol>
+                                                <h2 class="entry-header">RULES:</h2>
+                                                <ol>
+                                                  <li>It is a dual day event.</li>
+                                                  <li>A team can have maximum 3 participants per team.</li>
+                                                  <li>College ID is mandatory.</li>
+                                                  <li>Decision by judges is final.</li>
+                                                  <li>Use of mobile is strictly prohibited.</li>
+                                                  <li>Civilisation 19 ID is mandatory.</li>
+                                                </ol>
 
 
 
@@ -131,36 +175,45 @@
 
                                               <ul>
                                                 <li>	Guruprasath J&emsp;9025702803</li>
-                                              <li>	Sanmugam &emsp;7449024379</li>
+                                              <li>	Sanmugam G&emsp;7449024379</li>
                                             </ul>
+                                            <p>Mail your queries to events.c19@gmail.com</p>
                                           </div>
 
                                           <div id="tab_about" class="tab-content">
                                             <h2 class="entry-header">Click the button below to register.</h2>
-                                            <p>If you have registered for any workshop, you can attend all the events conducted for the symposium. The registration entitiles you to attend all the technical and non-technical events.</p>
+                                          <p>The registrations will be open till the 3rd of March.</p>
+                                            <p>If you have registered for any one event, you can attend all the events conducted during the symposium. This registration entitles you to attend all the technical and non-technical events.</p>
+                                            <?php
+                                            // Start the session
 
-                                              <form id="registration" class="entry-content">
-
-                                              <!--<div class="entry-content flex">-->
-                                                  <input type="hidden" value="sample" id="event" />
-                                                  <input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay OnSite"></input>
-                                                  <br>
-                                                  <?php
-                                                  // Start the session
-
-                                                  if(isset($_SESSION["cid"]))
-                                                  {
-                                                    $print .="<div><a href="https://www.townscript.com/e/events-232334"><input class="btn gradient flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay and Register"></input></a></div>";
-                                                  }
-                                                  echo  $print;
-                                                  ?>
+                                            if(isset($_SESSION["cid"]))
+                                            {
+                                              $print2 .="<div><p><b><strong>You are currently logged in as ".$_SESSION["name"]."</strong></b></p></div>";
+                                            }
+                                            else {
+                                              $print2 .="<p><b><strong>You must be logged in to register online or onspot.</strong></b></p>";
+                                            }
+                                            echo  $print2;
+                                            ?>
 
 
-                                                  <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                                  <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
-                                              <!--</div>-->
-                                              </form>
+                                            <form id="registration" class="entry-content">
+
+                                            <!--<div class="entry-content flex">-->
+                                                <input type="hidden" value="TALL STRUCTURES" id="event" />
+                                                <input class="btn gradient flex justify-content-center align-items-center" type="button" value="Closed."></input>
+                                                <p><b><strong>You can pay and register for the event onspot.</strong></b></p>
+                                                <br>
+
+
+
+
+                                                <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
+                                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
+                                            <!--</div>-->
+                                            </form>
 
                                               </div>
                                       </div>
@@ -339,21 +392,21 @@
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">him@sbenstewart.in</a>
+                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://sbenstewart.in" style="color: #7443A1;" target="_blank">Chennai</a>
+                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
                         </div><!-- copyright-info -->
 
                         <div class="footer-social">
                             <ul class="flex justify-content-center align-items-center">
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
+                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
+                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
                             </ul>
                         </div><!-- footer-social -->
                     </div><!-- col -->
