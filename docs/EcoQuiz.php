@@ -1,424 +1,312 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
+    <title>Civilisation</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the official website of Civilisation CEG, a nation level intercollege technical symposium conducted by the Society of Civil Engineers in association with the department of Civil Engineering, College of Engineering Guindy.">
+    <meta name="author" content="Ben Stewart S">
+    <meta name="keywords" content="civilisation,ceg,symposium,2020,civil,ben stewart,chennai,guindy,college">
 
-    <title>Civil Symposium!</title>
-
-    <!--Preloader-->
-    <script rel="preload" src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.8.0/bodymovin.min.js'></script>
-    <script rel="preload" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-
     <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="css/swiper.min.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
 
     <!--Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
-
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/toastr.min.css">
+    <script src="js/custom.js"></script>
 </head>
-<body class="elements-page">
-    <header class="site-header">
-        <div class="header-bar">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-10 col-lg-4">
-                        <h1 class="site-branding flex">
-                            <a href="#">CIVIL</a>
-                        </h1>
-                    </div>
+<body class="single-event-page">
+<header class="site-header">
+<div class="header-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-10 col-lg-2 order-lg-1">
+                    <div class="site-branding">
+                        <div class="site-title">
+                            <a href="index.php"><img src="images/weblogo.png" alt="CIVIL"></a>
+                        </div><!-- .site-title -->
+                    </div><!-- .site-branding -->
+                </div><!-- .col -->
 
-                    <div class="col-2 col-lg-8">
-                        <nav class="site-navigation">
-                            <div class="hamburger-menu d-lg-none">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div><!-- .hamburger-menu -->
+                <div class="col-2 col-lg-8 order-3 order-lg-2">
+                    <nav class="site-navigation">
+                        <div class="hamburger-menu d-lg-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- .hamburger-menu -->
 
-                            <ul>
-                                <li><a href="index.php#home">HOME</a></li>
-                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.php#events">EVENTS</a></li>
-                                <li><a href="index.php#lectures">LECTURES</a></li>
-                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
-                                <li><a href="about.php">CONTACT</a></li>
-                                <?php
-                                // Start the session
+                        <ul>
+                            <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                            <li><a href="index.php#events">EVENTS</a></li>
+                            <li><a href="index.php#lectures">LECTURES</a></li>
+                            <li><a href="Projectdisplay.php">PROJECTS</a></li>
+                            <li><a href="about.php">ABOUT</a></li>
+                            <?php
+                            // Start the session
 
-                                if(isset($_SESSION["cid"]))
-                                {
-                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
-                                }
-                                else {
-                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
-                                }
-                                echo  $print1;
-                                ?>
+                            if(isset($_SESSION["cid"]))
+                            {
+                                $print1 ='<li class="d-lg-none"><a href="php/logout.php">LOGOUT</a></li>';
+                            }
+                            else {
+                                $print1 ='<li class="d-lg-none"><a href="login.php">LOGIN</a></li>';
+                            }
+                            echo  $print1;
+                            ?>
+                        </ul>
+                    </nav><!-- .site-navigation -->
+                </div><!-- .col -->
+
+                <div class="col-lg-2 d-none d-lg-block order-2 order-lg-3">
+                    <div class="buy-tickets">
+
+                        <?php
+                            // Start the session
+
+                            if(isset($_SESSION["cid"]))
+                            {
+                                $print1 ='<a class="btn gradient-bg" href="php/logout.php">LOGOUT</a>';
+                            }
+                            else {
+                                $print1 ='<a class="btn gradient-bg" href="login.php">LOGIN</a>';
+                            }
+                            echo  $print1;
+                            ?>
 
 
-                            </ul><!-- flex -->
-                        </nav><!-- .site-navigation -->
-                    </div><!-- .col-12 -->
-                </div><!-- .row -->
-            </div><!-- container-fluid -->
-        </div><!-- header-bar -->
-    </header><!-- .site-header -->
+                    </div><!-- .buy-tickets -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container-fluid -->
+    </div><!-- .header-bar -->
 
-    <div class="page-header">
+    <div class="page-header single-event-page-header">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="entry-header">
+                    <header class="entry-header">
+                        <h1 class="entry-title">Eco Quiz</h1>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+</header><!-- .site-header -->
 
-                        <!--<ul class="breadcrumbs flex align-items-center">
-                            <li><a href="#">Home</a></li>
-                            <li>Elements</li>
-                        </ul><!-- .breadcrumbs -->
-                    </div><!-- .entry-header -->
-                </div><!-- .col-12 -->
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- .page-header -->
+<div class="container mb-5">
 
-    <div class="main-content">
-            <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="tabs">
+                <ul class="tabs-nav flex">
+                    <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_details">Details</li>
+                    <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_organizers">Organisers</li>
+                    <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_about">Register</li>
+                </ul>
 
-                <div class="row elements-wrap">
-                    <div class="col-12 accordion-and-tabs-wrap">
-                        <div class="entry-header">
-                            <h2 class="entry-title">ECO QUIZ</h2>
-                        </div><!-- entry-header -->
-
-                        <div class="entry-content">
-                            <div class="row">
-                              <div class="col-12 col-lg-7 mt-5 mt-lg-0">
-                                  <div class="tabs">
-                                      <ul class="tabs-nav flex">
-                                          <li class="tab-nav flex justify-content-center align-items-center active" data-target="#tab_details">Details</li>
-                                          <!--<li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_venue">Venue</li>-->
-                                          <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_organizers">Organizers</li>
-                                          <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_about">Register</li>
-                                      </ul><!-- tabs-nav -->
-
-                                      <div class="tabs-container">
-                                          <div id="tab_details" class="tab-content">
+                <div class="tabs-container">
+                    <div id="tab_details" class="tab-content">
 
 
-                                              <p><strong><b>“Fire made us human,fossil fuels made us modern,but now we need a new fire that makes us safe, secure, healthy and durable”<br>
-                                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-Amory Lovins
-                                                </b></strong>
-                                                <br>
-                                                <br>
-                                                <br>Taking care of the earth isn't all fun and games,but it can be sometimes.So test your knowledge and see just how much you know.<br>Do you consider yourself eco friendly,or do you think this new trend in the world is totally a waste of time and money? This quiz will help you discover how green you are!Dig in!
-                                                <br>
+                        <p><strong>"Earth provides enough to satisfy every man's needs, But not every man's greed." - Mahatma Gandhi</strong></p>
+                        <p>
+                            <b>‘Mother Nature’</b> is the real comrade who makes our very existence possible. She will be able to serve us only if we protect her. What have we given back to her?<br>
 
-                                              </p>
-                                              <h2 class="entry-header">FORMAT:</h2>
-                                              <ol>
-                                                <li>PRELIMS:
-                                                  <ul>
-                                                    <li>It's pen and paper round.</li>
-                                                    <li>Set of questions will be given with multiple choice.</li>
-                                                    <li>Top 10 teams will be selected for final.</li>
-                                                  </ul>
-                                                </li>
-                                                <li>FINALS:
-                                                  <ul>
-                                                    <li>It's pen and paper round.</li>
-                                                    <li>Set of question will be given relavant to environmental issues.</li>
-                                                    <li>Based on the performance, winner will be selected.</li>
-                                                  </ul>
-                                                </li>
+                            It's time for all the nature lovers out there to brush up your knowledge about nature and come take part in the Eco Quiz in Civilisation<br>
+                        </p>
 
-                                              </ol>
-                                              <h2 class="entry-header">RULES:</h2>
-                                              <ol>
-                                                <li>Civilisation 19 ID is mandatory</li>
-                                                <li>Phone is not allowed.</li>
-                                                <li>A group can have at most 2 members.</li>
-                                                <li>There will be negative marks.</li>
-                                                <li>Everyone should bring a calculator.</li>
-                                              </ol>
+                        <h2 class="entry-header">FORMAT:</h2>
+                        <ol>
+                            <li>PRELIMS:
+                                <ul>
+                                    <li>It’s paper and pen round.</li>
+                                    <li>Questions will be based on Environmental Science and Engineering.</li>
+                                    <li>Set of questions will be given with multiple choices.</li>
+                                    <li>Duration: 30 min</li>
+                                    <li>Top 10 teams will be selected for finals.</li>
+                                </ul>
+                            </li>
+                            <li>FINALS:
+                                <ul>
+                                    <li>It consists of two or more small rounds.</li>
+                                    <li>More information will be provided onspot.</li>
+                                </ul>
+                            </li>
+                        </ol>
 
+                        <h2 class="entry-header">RULES:</h2>
+                        <ol>
+                            <li>Mobile phone is not allowed.</li>
+                            <li>College ID and Civilisation ID (will be provided) is mandatory.</li>
+                            <li>A group can have at most 2 members.</li>
+                            <li>There will be negative marks.</li>
+                            <li>Everyone should bring a calculator.</li>
+                        </ol>
 
-                                          </div>
+                        <!--<h2 class="entry-header">Prize And Venue:</h2>
+                            <ul>
+                                <dl>
+                                    <dd>
+                                        <li> <b>Prize</b>:
+                                            <dt>1st Prize : <strong>3000 INR</strong>
+                                            <dt>2nd Prize : <strong>2000 INR</strong>
+                                            <dt>3rd Prize : <strong>1500 INR</strong>
+                                        </li>
 
-                                          <!--<div id="tab_venue" class="tab-content">
-                                              <h2 class="entry-header">10 years a mission</h2>
-
-                                              <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum, diam odio tempor purus, at ultrices elit nulla ac nisl. Vestibulum enim sapien, blandit finibus elit vitae, venenatis tempor enim.</p>
-                                          </div>-->
-
-                                          <div id="tab_organizers" class="tab-content">
-                                              <h2 class="entry-header">Call for any doubts or queries</h2>
-
-                                              <ul>
-                                                <li>Ajith.A&emsp;9159010114</li>
-                                                <li>Gayathri.T&emsp;9688629182</li>
-                                            </ul>
-                                            <p>Mail your queries to events.c19@gmail.com</p>
-                                          </div>
-
-                                          <div id="tab_about" class="tab-content">
-                                            <h2 class="entry-header">Click the button below to register.</h2>
-                                            <p>The registrations can be done onspot.</p>
-                                            <p>If you have registered for any one event, you can attend all the events conducted during the symposium. This registration entitles you to attend all the technical and non-technical events.</p>
-                                            <?php
-                                            // Start the session
-
-                                            if(isset($_SESSION["cid"]))
-                                            {
-                                              $print2 .="<div><p><b><strong>You are currently logged in as ".$_SESSION["name"]."</strong></b></p></div>";
-                                            }
-                                            else {
-                                              $print2 .="<p><b><strong>You must be logged in to register online or onspot.</strong></b></p>";
-                                            }
-                                            echo  $print2;
-                                            ?>
+                                    <dd>
+                                        <li><b>Venue</b>:
+                                            <dt>Prelims :<strong>KP </strong>
+                                            <dt>Finals :<strong> Projector Room</strong></li>
+                                </dl>
+                            </ul> -->
 
 
-                                            <form id="registration" class="entry-content">
-
-                                            <!--<div class="entry-content flex">-->
-                                                <input type="hidden" value="TALL STRUCTURES" id="event" />
-                                                <input class="btn gradient flex justify-content-center align-items-center" type="button" value="Closed."></input>
-                                                <p><b><strong>You can pay and register for the event onspot.</strong></b></p>
-                                                <br>
-
-
-
-
-                                                <!--<a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>-->
-                                            <!--</div>-->
-                                            </form>
-
-                                              </div>
-                                      </div>
-                                  </div>
-                              </div><!-- col-7 -->
-                                <!--<div class="col-12 col-lg-5">
-                                    <div class="accordion-wrap type-accordion">
-                                        <h3 class="entry-title active flex justify-content-between">Question1?<span class="arrow-r"></span></h3>
-
-                                        <div class="entry-content">
-                                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus.</p>
-                                        </div>
-
-                                        <h3 class="entry-title flex justify-content-between">Question2?<span class="arrow-r"></span></h3>
-
-                                        <div class="entry-content">
-                                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus.</p>
-                                        </div>
-
-                                        <h3 class="entry-title flex justify-content-between">Question3?<span class="arrow-r"></span></h3>
-
-                                        <div class="entry-content">
-                                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- col-5 -->
-
-
-                            </div><!-- row -->
-                        </div><!-- entry-content -->
-                    </div><!-- col-12 -->
-                </div><!-- row elements-wrap -->
-
-                <div class="row elements-wrap">
-                    <!--<div class="col-12">
-                        <div class="entry-header">
-                            <h2 class="entry-title">Milestones</h2>
-                        </div>
-
-                        <div class="milestones">
-                            <div class="row flex flex-wrap justify-content-between">
-                                <div class="d-col-n mt-5 mt-lg-0">
-                                    <div class="counter-box">
-                                        <div class="flex justify-content-center">
-                                            <div class="start-counter" data-to="390" data-speed="2000"></div>
-                                        </div>
-
-                                        <h3 class="entry-title">Hours of Music</h3>
-                                    </div>
-                                </div>
-
-                                <div class="d-col-n mt-5 mt-lg-0">
-                                    <div class="counter-box">
-                                        <div class="flex justify-content-center">
-                                            <div class="start-counter" data-to="68" data-speed="2000"></div>
-                                        </div>
-
-                                        <h3 class="entry-title">DJ's Playing</h3>
-                                    </div>
-                                </div>
-
-                                <div class="d-col-n mt-5 mt-lg-0">
-                                    <div class="counter-box">
-                                        <div class="flex justify-content-center">
-                                            <div class="start-counter" data-to="120" data-speed="2000"></div>
-                                            <div class="counter-k">K</div>
-                                        </div>
-
-                                        <h3 class="entry-title">Visitors</h3>
-                                    </div>
-                                </div>
-
-                                <div class="d-col-n mt-5 mt-lg-0">
-                                    <div class="counter-box">
-                                        <div class="flex justify-content-center">
-                                            <div class="start-counter" data-to="8" data-speed="2000"></div>
-                                        </div>
-
-                                        <h3 class="entry-title">Stages</h3>
-                                    </div>
-                                </div>
-
-                                <div class="d-col-n mt-5 mt-lg-0">
-                                    <div class="counter-box">
-                                        <div class="flex justify-content-center">
-                                            <div class="start-counter" data-to="325" data-speed="2000"></div>
-                                            <div class="counter-k">K</div>
-                                        </div>
-
-                                        <h3 class="entry-title">Followers</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- col-12 -->
-                    <div class="row elements-wrap">
-                    <!--    <div class="col-12 buttons-wrap">
-                            <div class="entry-header">
-                                <h2 class="entry-title">Buttons</h2>
-                            </div>
-
-                            <div class="entry-content flex">
-                                <a href="#" class="btn gradient flex justify-content-center align-items-center">Load More</a>
-                                <a href="#" class="btn white flex justify-content-center align-items-center">Load More</a>
-                                <a href="#" class="btn border-blu flex justify-content-center align-items-center">Load More</a>
-                                <a href="#" class="btn color-border flex justify-content-center align-items-center">Load More</a>
-                            </div>
-                        </div>-->
-                    </div><!-- row elements-wrap -->
-
-                </div><!-- row elements-wrap -->
-
-                <!--<div class="row elements-wrap">
-                    <div class="col-12">
-                        <div class="entry-header">
-                            <h2 class="entry-title">Loaders</h2>
-                        </div>
-
-                        <div class="entry-content elements-container">
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="circular-progress-bar">
-                                        <div class="circle" id="hard_work">
-                                            <strong></strong>
-                                            <h3 class="entry-title">Hard Work</h3>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="circular-progress-bar">
-                                        <div class="circle" id="good_music">
-                                            <strong></strong>
-                                            <h3 class="entry-title">Good Music</h3>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="circular-progress-bar">
-                                        <div class="circle" id="power">
-                                            <strong></strong>
-                                            <h3 class="entry-title">Power</h3>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="circular-progress-bar">
-                                        <div class="circle" id="fun_time">
-                                            <strong></strong>
-                                            <h3 class="entry-title">Fun times</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div><!-- row elements-wrap -->
+
+                    <div id="tab_organizers" class="tab-content">
+                        <h2 class="entry-header">Contact:</h2>
+                        <ul>
+                        <div class="row">
+                        <div class="col-2">
+                        <li>Dinesh<br>8825622680</li>
+                        <li>Kiruthika<br>7373015319</li>
+                        <li>Karthick<br>9080603001</li>
+                        </div >
+                        </div>
+                        </ul>
+                        <p>Mail your queries to <a href="mailto:eventsc2020@gmail.com">eventsc2020@gmail.com</a></p>
+
+                    </div>
+
+                    <div id="tab_about" class="tab-content">
+                        <p><strong>Click the button below to register.</strong></p><br>
+                        <p>The registrations will be open till the 4<sup>th</sup> of March.</p><br>
+                        <p>If you have registered for any one event, you can attend all the events conducted during the symposium. This registration entitles you to attend all the technical and non-technical events.</p>
+                        <?php
+                        // Start the session
+
+                            if(isset($_SESSION["cid"]))
+                            {
+                            $print2 ="<p><strong>You are currently logged in as ".$_SESSION["name"]."</strong></p>";
+                            }
+                            else {
+                                $print2 ="<p><strong>You must be logged in to register online or onspot.</strong></p>";
+                              }
+                            echo  $print2;
+                        ?>
+
+<form id="registration" class="entry-content">
+
+<!--<div class="entry-content flex">-->
+    <input type="hidden" value="EVENTS" id="event" />
+    <input class="btn gradient-bg flex justify-content-center align-items-center" type="button" onclick="regEvent()" value="Pay onspot"></input>
+    <br>
+    <?php
+    // Start the session
+    if(isset($_SESSION["cid"]))
+    {
+
+    $print ='
+    <div class="entry-content flex">
+        <a href="https://www.townscript.com/e/c20events" class="btn gradient-bg flex justify-content-center align-items-center">Pay and Register</a>
+    </div>
+    ';
+    }
+    else {
+    $print ='
+    <div class="entry-content flex">
+        <a href="login.php" class="btn gradient-bg flex justify-content-center align-items-center">Pay and Register</a>
+    </div>
+    ';
+    }
+    echo  $print;
+    ?>
 
 
-            </div><!-- container -->
-    </div><!-- main-content -->
+<!--</div>-->
+</form>
 
-    <footer class="site-footer">
-        <div class="footer-cover-title flex justify-content-center align-items-center">
-            <h2>CIVIL</h2>
-        </div><!-- .site-footer -->
 
-        <div class="footer-content-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="entry-title">
-                            <a href="#">SYMPO!</a>
-                        </div><!-- entry-title -->
 
-                        <div class="entry-mail">
-                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
-                        </div><!-- .entry-mail -->
 
-                        <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
-                        </div><!-- copyright-info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        <div class="footer-social">
-                            <ul class="flex justify-content-center align-items-center">
-                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
-                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+
+
+    
+</div>
+
+
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <figure class="footer-logo">
+                    <a href="#"><p class="entry-title">Civilisation 2020</p></a>
+                </figure>
+
+                <nav class="footer-navigation">
+                    <ul class="flex flex-wrap justify-content-center align-items-center">
+                        <li><a href="#workshops">WORKSHOPS</a></li>
+                            <li><a href="#events">EVENTS</a></li>
+                            <li><a href="#lectures">LECTURES</a></li>
+                            <li><a href="Projectdisplay.php">PROJECTS</a></li>
+                            <li><a href="about.php">ABOUT</a></li>
+                    </ul>
+                </nav>
+
+                Made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" target="_blank">Chennai</a>
+                <div class="footer-social">
+                    <ul class="flex flex-wrap justify-content-center align-items-center">
+                                <li><a href="https://fb.com/au.civilisation"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/civilisation_20"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="tel:+919176224940"><i class="fa fa-phone"></i></a></li>
+                                <li><a href="mailto:civilisation2020ceg@gmail.com?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
                                 <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
-                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
-                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
-                            </ul>
-                        </div><!-- footer-social -->
-                    </div><!-- col -->
-                </div><!-- row -->
-            </div><!-- container -->
-        </div><!-- footer-content-wrapper -->
-    </footer><!-- site-footer -->
+                                <li><a href="https://api.whatsapp.com/send?phone=919176224940"><i class="fa fa-whatsapp"></i></a></li>
+                                <li><a href="https://forms.gle/DoiPfyzcotmjpasa6"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-    <script type='text/javascript' src='js/jquery.js'></script>
-    <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
-    <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='js/swiper.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
-    <script type='text/javascript' src='js/circle-progress.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
-    <script type='text/javascript' src='js/custom.js'></script>
-    <script type='text/javascript' src='js/main.js'></script>
+<div class="back-to-top flex justify-content-center align-items-center">
+    <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1395 1184q0 13-10 23l-50 50q-10 10-23 10t-23-10l-393-393-393 393q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
+</div>
+
+<script type='text/javascript' src='js/jquery.js'></script>
+<script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
+<script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='js/swiper.min.js'></script>
+<script type='text/javascript' src='js/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='js/circle-progress.min.js'></script>
+<script type='text/javascript' src='js/jquery.countTo.min.js'></script>
+<script type='text/javascript' src='js/custom.js'></script>
+<script type='text/javascript' src='js/main.js'></script>
+<script type='text/javascript' src='js/toastr.min.js'></script>
+
 </body>
 </html>

@@ -1,306 +1,256 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
+    <title>Civilisation</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the official website of Civilisation CEG, a nation level intercollege technical symposium conducted by the Society of Civil Engineers in association with the department of Civil Engineering, College of Engineering Guindy.">
+    <meta name="author" content="Ben Stewart S">
+    <meta name="keywords" content="civilisation,ceg,symposium,2020,civil,ben stewart,chennai,guindy,college">
 
-    <title>Civil Symposium!</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="css/swiper.min.css">
 
+    <!--Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/toastr.min.css">
+    <script src="js/custom.js"></script>
 </head>
-
 <body class="contact-page">
-    <header class="site-header">
-        <div class="header-bar">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-10 col-lg-4">
-                        <h1 class="site-branding flex">
-                            <a href="#">CIVIL</a>
-                        </h1>
-                    </div>
+<header class="site-header">
+<div class="header-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-10 col-lg-2 order-lg-1">
+                    <div class="site-branding">
+                        <div class="site-title">
+                            <a href="index.php"><img src="images/weblogo.png" alt="CIVIL"></a>
+                        </div><!-- .site-title -->
+                    </div><!-- .site-branding -->
+                </div><!-- .col -->
 
-                    <div class="col-2 col-lg-8">
-                        <nav class="site-navigation">
-                            <div class="hamburger-menu d-lg-none">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div><!-- .hamburger-menu -->
+                <div class="col-2 col-lg-8 order-3 order-lg-2">
+                    <nav class="site-navigation">
+                        <div class="hamburger-menu d-lg-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- .hamburger-menu -->
 
-                            <ul>
-                                <li><a href="index.php#home">HOME</a></li>
-                                <li><a href="index.php#workshops">WORKSHOPS</a></li>
-                                <li><a href="index.php#events">EVENTS</a></li>
-                                <li><a href="index.php#lectures">LECTURES</a></li>
-                                <li><a href="accomodation.php">ACCOMMODATION</a></li>
-                                <li><a href="about.php">CONTACT</a></li>
-                                <?php
-                                // Start the session
+                        <ul>
+                            <li><a href="index.php#workshops">WORKSHOPS</a></li>
+                            <li><a href="index.php#events">EVENTS</a></li>
+                            <li><a href="index.php#lectures">LECTURES</a></li>
+                            <li><a href="Projectdisplay.php">PROJECTS</a></li>
+                            <li><a href="about.php">ABOUT</a></li>
+                            <?php
+                            // Start the session
 
-                                if(isset($_SESSION["cid"]))
-                                {
-                                  $print1 .="<li><a href='logout.php'>LOGOUT</a></li>";
-                                }
-                                else {
-                                  $print1 .="<li><a href='signup.php'>LOGIN</a></li>";
-                                }
-                                echo  $print1;
-                                ?>
+                            if(isset($_SESSION["cid"]))
+                            {
+                                $print1 ='<li class="d-lg-none"><a href="php/logout.php">LOGOUT</a></li>';
+                            }
+                            else {
+                                $print1 ='<li class="d-lg-none"><a href="login.php">LOGIN</a></li>';
+                            }
+                            echo  $print1;
+                            ?>
+                        </ul>
+                    </nav><!-- .site-navigation -->
+                </div><!-- .col -->
+
+                <div class="col-lg-2 d-none d-lg-block order-2 order-lg-3">
+                    <div class="buy-tickets">
+
+                        <?php
+                            // Start the session
+
+                            if(isset($_SESSION["cid"]))
+                            {
+                                $print1 ='<a class="btn gradient-bg" href="php/logout.php">LOGOUT</a>';
+                            }
+                            else {
+                                $print1 ='<a class="btn gradient-bg" href="login.php">LOGIN</a>';
+                            }
+                            echo  $print1;
+                            ?>
 
 
-                            </ul><!-- flex -->
-                        </nav><!-- .site-navigation -->
-                    </div><!-- .col-12 -->
-                </div><!-- .row -->
-            </div><!-- container-fluid -->
-        </div><!-- header-bar -->
-    </header><!-- .site-header -->
+                    </div><!-- .buy-tickets -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container-fluid -->
+    </div><!-- .header-bar -->
 
-    <div class="page-header">
+    <div class="page-header contact-page-header">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="entry-header">
-                        <h2 class="entry-title">Edit</h2>
-
-                        <!--<ul class="breadcrumbs flex align-items-center">
-                            <li><a href="#">Home</a></li>
-                            <li>Contact</li>
-                        </ul><!-- .breadcrumbs -->
-                    </div><!-- entry-header -->
-                </div><!-- col-12 -->
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- page-header -->
-
-    <div class="container">
-        <div class="main-content">
-            <!--<div class="contact-page-map">
-                <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=university of san francisco&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-            </div><!-- map -->
-
-            <!--<div class="contact-details">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="contact-medium flex align-items-center">
-                                <figure class="contact-icon">
-                                    <img src="images/phone.jpg" alt="phone icon">
-                                </figure>
-
-                                <div class="contact-content">
-                                    <div class="entry-title">
-                                        Phone
-                                    </div>
-                                    <div class="entry-content">
-                                        +45 677 8993000 223
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--<div class="col-12 col-md-6 col-lg-4 mt-5 mt-md-0">
-                            <div class="contact-medium flex align-items-center">
-                                <figure class="contact-icon">
-                                    <img src="images/mail.jpg" alt="phone icon">
-                                </figure>
-
-                                <div class="contact-content">
-                                    <div class="entry-title">
-                                        E-mail
-                                    </div>
-                                    <div class="entry-content">
-                                        office@template.com
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 mt-5 mt-lg-0">
-                            <div class="contact-medium flex align-items-center">
-                                <figure class="contact-icon">
-                                    <img src="images/place.jpg" alt="phone icon">
-                                </figure>
-
-                                <div class="contact-content">
-                                    <div class="entry-title">
-                                        Address
-                                    </div>
-                                    <div class="entry-content">
-                                        Main Str. no 45-46, b3, 56832,<br>
-                                        Los Angeles, CA
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- col-4 -->
-                    </div><!-- row -->
+                    <header class="entry-header">
+                        <h1 class="entry-title">Edit</h1>
+                    </header>
                 </div>
-            </div><!-- contact-details -->
+            </div>
+        </div>
+    </div>
+</header><!-- .site-header -->
 
-            <div class="get-in-touch">
-                <!--<div class="entry-header">
-                    <div class="entry-title">
-                        <p>JUST THE BEST</p>
-                        <h2>Get in touch</h2>
-                    </div>
-                </div>
 
-                <div class="entry-content">
-                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus.
-                        Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.
-                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestibulum mauris quis aliquam.
-                        Integer accumsan sodales odio, id tempus velit ullamcorper id.</p>
-                </div>-->
 
-                <div class="contact-form">
-                    <div class="row">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="contact-form">
+                <form class="row">
+
+                    <div class="col-12">
+                        <input type="number" placeholder="Your cid (Required)" id="cid">
+                    </div><!-- col-4 -->
+
+                    <div class="col-12">
+                        <input type="email" placeholder="Your email (Required)" id="mail">
+                    </div><!-- col-6 -->
 
                       <div class="col-12">
-                          <input type="number" placeholder="Your cid (Required)" id="cid">
+                          <input type="text" placeholder="Your name" id="name">
                       </div><!-- col-4 -->
 
                       <div class="col-12">
-                          <input type="email" placeholder="Your email (Required)" id="mail">
+                          <input type="text" placeholder="Phone number - Ten digits only" id="phone">
+                      </div>
+
+
+
+                      <div class="col-12">
+                          <input type="text" placeholder="College" id="college">
                       </div><!-- col-6 -->
 
-                        <div class="col-12">
-                            <input type="text" placeholder="Your name" id="name">
-                        </div><!-- col-4 -->
-
-                        <div class="col-12">
-                            <input type="text" placeholder="Phone number - Ten digits only" id="phone">
-                        </div>
-
-
-
-                        <div class="col-12">
-                            <input type="text" placeholder="College" id="college">
-                        </div><!-- col-6 -->
-
-                        <div class="col-12">
-                        <select id="course">
-                          <option value="">&nbsp;&nbsp;&nbsp;&nbsp;Select your course</option>
-                          <option value="B.E.">&nbsp;&nbsp;&nbsp;&nbsp;B.E.</option>
-                          <option value="M.E.">&nbsp;&nbsp;&nbsp;&nbsp;M.E.</option>
-                          <option value="Research Scholar">&nbsp;&nbsp;&nbsp;&nbsp;Research Scholar</option>
-                          <option value="Other">&nbsp;&nbsp;&nbsp;&nbsp;Other</option>
-                        </select>
-                        </div>
+                      <div class="col-12">
+                      <select id="course">
+                        <option value="">Select your course</option>
+                        <option value="B.E.">B.E.</option>
+                        <option value="M.E.">M.E.</option>
+                        <option value="Research Scholar">Research Scholar</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      </div>
 
 
-                        <div class="col-12">
-                        <select id="year">
-                          <option value="">&nbsp;&nbsp;&nbsp;&nbsp;Select your year</option>
-                          <option value="1">&nbsp;&nbsp;&nbsp;&nbsp;1</option>
-                          <option value="2">&nbsp;&nbsp;&nbsp;&nbsp;2</option>
-                          <option value="3">&nbsp;&nbsp;&nbsp;&nbsp;3</option>
-                          <option value="4">&nbsp;&nbsp;&nbsp;&nbsp;4</option>
-                          <option value="5">&nbsp;&nbsp;&nbsp;&nbsp;5</option>
-                        </select>
-                        </div>
+                      <div class="col-12">
+                      <select id="year">
+                        <option value="">Select your year</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      </div>
 
 
-                        <div class="col-12">
-                            <input type="text" placeholder="Department" id="dept">
-                        </div><!-- col-6 -->
+                      <div class="col-12">
+                          <input type="text" placeholder="Department" id="dept">
+                      </div><!-- col-6 -->
 
-                        <div class="col-12">
-                            <input type="text" placeholder="Referal code (optional)" id="code">
-                        </div><!-- col-6 -->
+                      <div class="col-12">
+                          <input type="text" placeholder="Referal code (optional)" id="code">
+                      </div><!-- col-6 -->
 
 
 
-                        <div class="col-12 submit flex justify-content-center">
+                      <div class="col-12 submit flex justify-content-center">
+                            <?php
+                            // Start the session
 
-                          <?php
-                          // Start the session
+                            if(isset($_SESSION["cid"]))
+                            {
+                            $print2 ="<input type='button' onclick='editUser()' name='' value='Change' class='btn'>";
+                            }
+                            else {
+                            $print2 ="<a href='login.php'><input type='button' name='' value='Login' class='btn'></a>";
+                            }
+                            echo  $print2;
+                            ?> 
 
-                          if(isset($_SESSION["cid"]))
-                          {
-                            $print2 .="<input type='button' onclick='editUser()' name='' value='Change' class='btn'>";
-                          }
-                          else {
-                            $print2 .="<a href='login.php'><input type='button' name='' value='Login' class='btn'></a>";
-                          }
-                          echo  $print2;
-                          ?>
 
-                        </div>
+                      </div>
 
-                        <!--<div class="col-12 submit flex justify-content-center">
-                        <a href="signup.html" class="btn gradient flex justify-content-center align-items-center">Signup.</a>
-                      </div>-->
-
-                        <div class="col-12 submit flex justify-content-center">
+                    
+                    <div class="col-12 submit flex justify-content-center">
                         <a href="accomodation-signup.php" class="btn gradient flex justify-content-center align-items-center">Click here after signup for accomodation.</a>
-                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    </div><!-- row -->
-                </div><!-- contact-form -->
-            </div><!-- newsletter-subscribe -->
-        </div><!-- main-content -->
-    </div><!-- container -->
 
-    <footer class="site-footer">
-        <div class="footer-cover-title flex justify-content-center align-items-center">
-            <h2>CIVIL</h2>
-        </div><!-- .site-footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <figure class="footer-logo">
+                    <a href="#"><p class="entry-title">Civilisation 2020</p></a>
+                </figure>
 
-        <div class="footer-content-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="entry-title">
-                            <a href="#">SYMPO!</a>
-                        </div><!-- entry-title -->
+                <nav class="footer-navigation">
+                    <ul class="flex flex-wrap justify-content-center align-items-center">
+                        <li><a href="#workshops">WORKSHOPS</a></li>
+                            <li><a href="#events">EVENTS</a></li>
+                            <li><a href="#lectures">LECTURES</a></li>
+                            <li><a href="Projectdisplay.php">PROJECTS</a></li>
+                            <li><a href="about.php">ABOUT</a></li>
+                    </ul>
+                </nav>
 
-                        <div class="entry-mail">
-                            <a href="mailto:help@civilisationceg.in?Subject=Hello%20again" target="_top">help@civilisationceg.in</a>
-                        </div><!-- .entry-mail -->
-
-                        <div class="copyright-info">
-                            This site is made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" style="color: #7443A1;" target="_blank">Chennai</a>
-                        </div><!-- copyright-info -->
-
-                        <div class="footer-social">
-                            <ul class="flex justify-content-center align-items-center">
-                                <li><a href="https://fb.com/au.civilisation"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="tel:+91‭8489732365‬"><i class="fa fa-phone fa-rotate-90"></i></a></li>
-                                <li><a href="mailto:help@civilisationceg.in?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
+                Made with <i class="fa fa-heart" aria-hidden="true"></i> in <a href="https://www.google.com/maps/place/College+of+Engineering,+Guindy/@13.0169607,80.2036514,13z/data=!4m5!3m4!1s0x3a52679f0d20f797:0x59f9f10c66e02a19!8m2!3d13.01094!4d80.2354462" target="_blank">Chennai</a>
+                <div class="footer-social">
+                    <ul class="flex flex-wrap justify-content-center align-items-center">
+                                <li><a href="https://fb.com/au.civilisation"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/civilisation_20"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="tel:+919176224940"><i class="fa fa-phone"></i></a></li>
+                                <li><a href="mailto:civilisation2020ceg@gmail.com?Subject=Help%20Needed" target="_top"><i class="fa fa-envelope"></i></a></li>
                                 <!--<li><a href="#"><i class="fa fa-address-book"></i></a></li>-->
-                                <li><a href="https://api.whatsapp.com/send?phone=91‭9092859699‬"><i class="fab fa-whatsapp"></i></a></li>
-                                <li><a href="https://goo.gl/forms/7aUhSw8LaI6rfAn52"><i class="fab fa-github"></i></a></li>
-                            </ul>
-                        </div><!-- footer-social -->
-                    </div><!-- col -->
-                </div><!-- row -->
-            </div><!-- container -->
-        </div><!-- footer-content-wrapper -->
-    </footer><!-- site-footer -->
+                                <li><a href="https://api.whatsapp.com/send?phone=919176224940"><i class="fa fa-whatsapp"></i></a></li>
+                                <li><a href="https://forms.gle/DoiPfyzcotmjpasa6"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-    <script type='text/javascript' src='js/jquery.js'></script>
-    <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
-    <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='js/swiper.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
-    <script type='text/javascript' src='js/circle-progress.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
-    <script type='text/javascript' src='js/custom.js'></script>
-    <script type='text/javascript' src='js/main.js'></script>
+
+
+<div class="back-to-top flex justify-content-center align-items-center">
+    <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1395 1184q0 13-10 23l-50 50q-10 10-23 10t-23-10l-393-393-393 393q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
+</div>
+
+<script type='text/javascript' src='js/jquery.js'></script>
+<script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
+<script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='js/swiper.min.js'></script>
+<script type='text/javascript' src='js/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='js/circle-progress.min.js'></script>
+<script type='text/javascript' src='js/jquery.countTo.min.js'></script>
+<script type='text/javascript' src='js/custom.js'></script>
+<script type='text/javascript' src='js/main.js'></script>
+<script type='text/javascript' src='js/toastr.min.js'></script>
+
 </body>
 </html>
